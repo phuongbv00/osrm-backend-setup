@@ -11,6 +11,10 @@ Environment variables:
 - `OSM_URL`: URL to download the OpenStreetMap data file (e.g., `http://download.geofabrik.de/asia/japan-latest.osm.pbf`).
 - `OSRM_NAME`: Name of the OSRM data file (e.g., `japan-latest`).
 
+Volumes:
+
+- `/data`: Data path
+
 #### Kanto
 
 ```sh
