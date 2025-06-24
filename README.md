@@ -1,7 +1,7 @@
 ### Build
 
 ```sh
-docker build -f osrm.Dockerfile -t osrm-backend .
+docker build -t osrm-backend .
 ```
 
 ### Run
