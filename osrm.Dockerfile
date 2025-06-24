@@ -1,19 +1,13 @@
-ARG OSM_URL=http://download.geofabrik.de/asia/japan/kanto-latest.osm.pbf
-ARG OSRM_NAME=kanto-latest
+FROM ghcr.io/project-osrm/osrm-backend:v6.0.0
 
-FROM ghcr.io/project-osrm/osrm-backend
+WORKDIR /data
 
-ARG OSM_URL
-ARG OSRM_NAME
+ENV OSM_URL=http://download.geofabrik.de/asia/japan/kanto-latest.osm.pbf
+ENV OSRM_NAME=kanto-latest
 
-RUN apk add --no-cache wget
-RUN wget ${OSM_URL} -O ${OSRM_NAME}.osm.pbf
-
-# Prepare data
-RUN osrm-extract -p /opt/car.lua ${OSRM_NAME}.osm.pbf
-RUN osrm-partition /data/${OSRM_NAME}.osrm
-RUN osrm-customize /data/${OSRM_NAME}.osrm
+COPY bootstrap.sh /usr/local/bin/bootstrap.sh
+RUN chmod +x /usr/local/bin/bootstrap.sh
 
 EXPOSE 5000
 
-CMD ["osrm-routed", "--algorithm", "mld", "/data/${OSRM_NAME}.osrm"]
+ENTRYPOINT ["/usr/local/bin/bootstrap.sh"]
