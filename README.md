@@ -1,3 +1,15 @@
+## base documents
+
+https://hub.docker.com/r/osrm/osrm-backend/
+
+## predownload
+
+https://download.geofabrik.de/
+
+to data/, use unique filename.
+
+## build
+
 ### Build
 
 ```sh

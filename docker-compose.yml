@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+
+  osrm-debug-server:
+    build: 
+      dockerfile: ./debug.Dockerfile
+      args:
+        - PBF_FILE=osrm-data/asia/japan/kanto-latest.osm.pbf
+    image: osrm-server:debug
+    restart: always
+    ports:
+      - 59000:5000
+    entrypoint: ["osrm-routed","--algorithm","mld","data/area.osrm"]
+  
+  osrm-debug-frontend:
+    image: osrm/osrm-frontend
+    restart: always
+    ports:
+      - 59001:9966
+  
+  osrm-japan-server:
+    build: 
+      dockerfile: ./japan.Dockerfile
+    image: osrm-server:japan
+    restart: always
+    ports:
+      - 59100:5000
