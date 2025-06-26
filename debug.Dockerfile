@@ -1,4 +1,4 @@
-FROM ghcr.io/project-osrm/osrm-backend
+FROM ghcr.io/project-osrm/osrm-backend:latest
 
 ARG PBF_FILE
 
