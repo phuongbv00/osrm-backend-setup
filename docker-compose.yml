@@ -1,7 +1,4 @@
-version: '3.9'
-
 services:
-
   osrm-debug-server:
     build: 
       dockerfile: ./debug.Dockerfile
@@ -11,7 +8,6 @@ services:
     restart: always
     ports:
       - 59000:5000
-    entrypoint: ["osrm-routed","--algorithm","mld","data/area.osrm"]
   
   osrm-debug-frontend:
     image: ghcr.io/project-osrm/osrm-frontend:latest
