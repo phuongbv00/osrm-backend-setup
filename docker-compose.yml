@@ -14,11 +14,12 @@ services:
     entrypoint: ["osrm-routed","--algorithm","mld","data/area.osrm"]
   
   osrm-debug-frontend:
-    image: osrm/osrm-frontend
-    restart: always
+    image: ghcr.io/project-osrm/osrm-frontend:latest
+    # restart: always
     ports:
       - 59001:9966
-  
+    environment:
+      - OSRM_BACKEND=http://localhost:59000
   osrm-japan-server:
     build: 
       dockerfile: ./japan.Dockerfile
