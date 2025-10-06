@@ -2,7 +2,7 @@ FROM ghcr.io/project-osrm/osrm-backend:v6.0.0
 
 WORKDIR /data
 
-RUN wget -O /data/area.osm.pbf https://download.geofabrik.de/asia/japan/kanto-latest.osm.pbf
+RUN wget -O /data/area.osm.pbf https://download.geofabrik.de/asia/vietnam-latest.osm.pbf
 
 RUN osrm-extract -p /opt/car.lua /data/area.osm.pbf
 RUN osrm-partition /data/area.osrm
