@@ -1,3 +1,8 @@
+### Prerequisites
+
+If you are using Docker Desktop (macOS or Windows), provide at least x GB of RAM in Settings → Resources → Memory (x
+follows --memory).
+
 ### Japan
 
 ```shell
