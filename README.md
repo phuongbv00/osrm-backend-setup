@@ -14,7 +14,7 @@ The Dockerfile accepts a `MAP_URL` build argument to specify which OpenStreetMap
 #### Vietnam
 
 ```shell
-docker build --platform linux/amd64 --memory=16g \
+docker build --memory=16g \
   --build-arg MAP_URL=https://download.geofabrik.de/asia/vietnam-latest.osm.pbf \
   -t osrm-backend:v6.0.0-vietnam .
 ```
@@ -26,7 +26,7 @@ docker run -d -p 5000:5000 osrm-backend:v6.0.0-vietnam
 #### Japan
 
 ```shell
-docker build --platform linux/amd64 --memory=32g \
+docker build --memory=32g \
   --build-arg MAP_URL=https://download.geofabrik.de/asia/japan-latest.osm.pbf \
   -t osrm-backend:v6.0.0-japan .
 ```
@@ -38,7 +38,7 @@ docker run -d -p 5000:5000 osrm-backend:v6.0.0-japan
 #### Kanto
 
 ```shell
-docker build --platform linux/amd64 --memory=16g \
+docker build --memory=16g \
   --build-arg MAP_URL=https://download.geofabrik.de/asia/japan/kanto-latest.osm.pbf \
   -t osrm-backend:v6.0.0-kanto .
 ```
@@ -57,7 +57,7 @@ REGION_NAME=<REGION_NAME>
 ```
 
 ```shell
-docker build --platform linux/amd64 --memory=16g \
+docker build --memory=16g \
   --build-arg MAP_URL="$MAP_URL" \
   -t "osrm-backend:v6.0.0-$REGION_NAME" .
 ```
