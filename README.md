@@ -16,11 +16,11 @@ The Dockerfile accepts a `MAP_URL` build argument to specify which OpenStreetMap
 ```shell
 docker build --memory=16g \
   --build-arg MAP_URL=https://download.geofabrik.de/asia/vietnam-latest.osm.pbf \
-  -t osrm-backend:v6.0.0-vietnam .
+  -t osrm-backend:v26.6.5-debian-vietnam .
 ```
 
 ```shell
-docker run -d -p 5000:5000 osrm-backend:v6.0.0-vietnam
+docker run -d -p 5000:5000 osrm-backend:v26.6.5-debian-vietnam
 ```
 
 #### Japan
@@ -28,11 +28,11 @@ docker run -d -p 5000:5000 osrm-backend:v6.0.0-vietnam
 ```shell
 docker build --memory=32g \
   --build-arg MAP_URL=https://download.geofabrik.de/asia/japan-latest.osm.pbf \
-  -t osrm-backend:v6.0.0-japan .
+  -t osrm-backend:v26.6.5-debian-japan .
 ```
 
 ```shell
-docker run -d -p 5000:5000 osrm-backend:v6.0.0-japan
+docker run -d -p 5000:5000 osrm-backend:v26.6.5-debian-japan
 ```
 
 #### Kanto
@@ -40,11 +40,11 @@ docker run -d -p 5000:5000 osrm-backend:v6.0.0-japan
 ```shell
 docker build --memory=16g \
   --build-arg MAP_URL=https://download.geofabrik.de/asia/japan/kanto-latest.osm.pbf \
-  -t osrm-backend:v6.0.0-kanto .
+  -t osrm-backend:v26.6.5-debian-kanto .
 ```
 
 ```shell
-docker run -d -p 5000:5000 osrm-backend:v6.0.0-kanto
+docker run -d -p 5000:5000 osrm-backend:v26.6.5-debian-kanto
 ```
 
 #### Other Region
@@ -59,9 +59,9 @@ REGION_NAME=<REGION_NAME>
 ```shell
 docker build --memory=16g \
   --build-arg MAP_URL="$MAP_URL" \
-  -t "osrm-backend:v6.0.0-$REGION_NAME" .
+  -t "osrm-backend:v26.6.5-debian-$REGION_NAME" .
 ```
 
 ```shell
-docker run -d -p 5000:5000 "osrm-backend:v6.0.0-$REGION_NAME"
+docker run -d -p 5000:5000 "osrm-backend:v26.6.5-debian-$REGION_NAME"
 ```

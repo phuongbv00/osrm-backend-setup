@@ -1,9 +1,10 @@
-FROM ghcr.io/project-osrm/osrm-backend:v6.0.0
+FROM ghcr.io/project-osrm/osrm-backend:v26.6.5-debian
 
 ARG MAP_URL
 
 WORKDIR /data
 
+RUN apt-get update && apt-get install -y wget && rm -rf /var/lib/apt/lists/*
 RUN wget -O /data/area.osm.pbf ${MAP_URL}
 
 RUN osrm-extract -p /opt/car.lua /data/area.osm.pbf
